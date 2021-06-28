@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
   def index
-    @bikes = Bike.new
+    @bikes = Bike.all
   end
 
   def new
@@ -39,7 +39,7 @@ class BikesController < ApplicationController
 
   private
   def bike_params
-    params.require(:bike).permit(:model, :photo, :description, :price)
+    params.require(:bike).permit(:photo, :description, :price, :location)
   end
 
   def set_bike
