@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :bikes do
     resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:index, :show]
 end

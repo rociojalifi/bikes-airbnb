@@ -16,8 +16,9 @@ class BookingsController < ApplicationController
   def update
   end
 
+
   def destroy
-    # authorize @
+    authorize @booking
     @booking.destroy
     redirect_to root_path
   end
