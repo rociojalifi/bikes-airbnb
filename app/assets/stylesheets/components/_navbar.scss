@@ -10,3 +10,19 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-home {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  background: transparent;
+}
+
+.navbar-home .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-home .navbar-brand img {
+  width: 55px;
+}
