@@ -1,0 +1,16 @@
+  <div class="listing-price">
+    <div class="form-group">
+      <h4>$<%= @bike.price %></h4>
+      <p>per day</p><br>
+
+      <%= simple_form_for [@bike, @booking] do |f| %>
+        <%= f.input :pick_up, as: :date_picker, input_html: {:value => Date.today} %>
+        <%= f.input :drop_off, as: :date_picker, input_html: {:value => Date.today} %>
+        <%= f.input :description %><br><br>
+        
+        <%= f.submit "Book now!", class: "btn btn-danger form-control" %>
+        <br><br>
+      <% end %>
+    </div>
+    <%= link_to "Bikes", bikes_path, class:'btn btn-dark'%></button>
+  </div>

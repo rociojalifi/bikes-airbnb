@@ -1,0 +1,18 @@
+<div class= "container-listing">
+  <br>
+  <h2>
+    <strong>
+    Congratulations! Your booking has been confirmed!
+    </strong>
+  </h2>
+  <br>
+  <h3>Your booking details</h3>
+    <strong> Start Date: <%= @booking.pick_up %></strong> | <strong>End date: <%= @booking.drop_off %></strong>
+    <div class="booking-images"><%= cl_image_tag @bike.photo.key, height:300, crop: :fill %></div>
+  <div class= "container-listing">
+    <h4><strong> Description: <%= @booking.bike.description %></strong></h4>
+    <p> Price: <%= @booking.bike.price  %> </p>
+    <p> Location: <%= @booking.bike.location %> </p>
+    <%= link_to "Back home", root_path, class:'btn btn-dark' %>
+  </div>
+</div>

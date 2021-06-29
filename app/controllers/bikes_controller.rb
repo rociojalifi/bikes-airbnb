@@ -19,6 +19,7 @@ class BikesController < ApplicationController
   
   def show
     set_bike
+    @booking = Booking.new
   end
 
   def edit 

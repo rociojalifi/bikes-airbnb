@@ -1,20 +1,19 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :update, :destroy]
 
   def index
     @booking = Booking.where(user_id: current_user.id)
   end
 
   def show
-    set_booking
     @bike = @booking.bike
   end
 
   def update
-    set_booking
   end
 
+
   def destroy
-    set_booking
     @booking.destroy
     redirect_to root_path
   end
@@ -33,7 +32,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit()
+    params.require(:booking).permit(:pick_up, :drop_off)
   end
 
   def set_booking
