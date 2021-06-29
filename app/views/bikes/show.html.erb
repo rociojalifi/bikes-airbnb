@@ -1,2 +1,19 @@
-<%= @bike.description %>
-<%= @bike.location %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @bike.photo.key, crop: :scale %>'); height:300px; background-size:100%">
+    <div class="container">
+      <h1>The bike you chose</h1>
+    </div>
+</div>
+<div class="container">
+    <p><%= @bike.description %></p>
+    <p>USD <%= @bike.price %></p>
+    <p><%= @bike.location %></p>
+
+    <%= simple_form_for [@bike, @booking] do |form| %>
+        <%= form.input :pick_up %>
+        <%= form.input :drop_off %>
+        <%= form.submit %>
+    <% end %>
+</div>
+
+

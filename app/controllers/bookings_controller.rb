@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   skip_after_action :verify_policy_scoped, only: :index
   before_action :set_booking, only: [:show, :update, :destroy]
-  before_action :set_bike, only [:new, :create]
+  before_action :set_bike, only: [:new, :create]
 
   def index
     @booking = current_user.bookings
@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
   def create
     @bike = Bike.find(params[:bike_id])
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.bike = @bike
     @booking.user = current_user
     if @booking.save
@@ -49,6 +50,6 @@ class BookingsController < ApplicationController
   end
 
   def set_bike
-    @bike = Bike.find(params[:id])
+    @bike = Bike.find(params[:bike_id])
   end
 end
