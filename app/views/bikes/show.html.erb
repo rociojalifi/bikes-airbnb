@@ -1,2 +1,9 @@
-<%= @bike.description %>
-<%= @bike.location %>
+
+<div class="container">
+    <div class="banner" img src=<%= @bike.photo%>>
+        <h1><%= The bike you chose %></h1>
+        <p><%= @bike.description %></p>
+        <p>USD <%= @bike.price %></p>
+        <p><%= @bike.location %></p>
+    </div>
+</div>
