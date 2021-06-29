@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
 
   def show
     set_booking
-    @bike = @booking.bed
+    @bike = @booking.bike
   end
 
   def update
