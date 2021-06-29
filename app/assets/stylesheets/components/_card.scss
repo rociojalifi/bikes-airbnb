@@ -57,3 +57,26 @@
 .card-container:hover {
   opacity: 0.5;
 }
+
+.card-style {
+  height: 300px;
+  margin: 10px;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h3 {
+    color: azure;
+    align-content: center;
+    padding-left: 20px;
+  }
+}
+
+.title-style {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  h1 {
+    color: azure;
+  }
+}
