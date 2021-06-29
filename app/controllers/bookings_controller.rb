@@ -1,22 +1,29 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_policy_scoped, only: :index
+  before_action :set_booking, only: [:show, :update, :destroy]
+  before_action :set_bike, only [:new, :create]
 
   def index
-    @booking = Booking.where(user_id: current_user.id)
+    @booking = current_user.bookings
   end
 
   def show
-    set_booking
+    authorize @bike
     @bike = @booking.bike
   end
 
   def update
-    set_booking
   end
 
   def destroy
-    set_booking
+    authorize @
     @booking.destroy
     redirect_to root_path
+  end
+
+  def new
+    @booking = Booking.new
   end
 
   def create
@@ -33,10 +40,14 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit()
+    params.require(:booking).permit(:pick_up, :drop_off)
   end
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_bike
+    @bike = Bike.find(params[:id])
   end
 end
