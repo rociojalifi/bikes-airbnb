@@ -1,0 +1,6 @@
+<h1>Congratulations!</h1>
+<h2>You have booked the following bike:</h2>
+<h2>Description: <%= @booking.bike.description %></h2>
+<h2>Price: USD <%= @booking.bike.price %></h2>
+<h2>Location: <%= @booking.bike.location %></h2>
+<h2>From: <%= @booking.bike.user.email.split('@').first %></h2>
