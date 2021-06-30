@@ -1,0 +1,10 @@
+<div>
+  <%= simple_form_for @bike do |f| %>
+  <%= f.input :description  %>
+  <%= f.input :photo  %>
+  <%= f.input :price %>
+  <%= f.input :location %>
+  <%= f.submit%>  
+  <% end %>
+  <%= link_to "Back", bikes_path, class:'btn btn-primary' %>
+</div>
