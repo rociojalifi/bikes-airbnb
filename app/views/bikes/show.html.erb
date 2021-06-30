@@ -1,21 +1,31 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @bike.photo.key, crop: :scale %>'); height:300px; background-size:100%">
-    <div class="container">
+    <div class="container" style="padding-top: 50px">
       <h1>The bike you chose</h1>
     </div>
 </div>
 <div class="container">
+    <div class="space" >
+      <p>
+
+      </p>
+    </div>
     <p><%= @bike.description %></p>
-    <p>USD <%= @bike.price %></p>
-    <p><%= @bike.location %></p>
+    <p><strong>Price: </strong> EUROS <%= @bike.price %></p>
+    <p><strong>Pick-up location: </strong><%= @bike.location %></p>
 
     <%= simple_form_for [@bike, @booking] do |form| %>
         <%= form.input :pick_up %>
         <%= form.input :drop_off %>
-        <%= form.submit %>
+        <%= form.submit class:'btn btn-primary' %>
     <% end %>
-    <%= link_to "Back", bikes_path, class:'btn btn-primary' %>
-
+    
+    <div class="back-link" style="padding-top: 20px">
+      <%= link_to "Back", bikes_path, class:'btn btn-primary' %>
+    </div>
 </div>
+
+
+
 
 

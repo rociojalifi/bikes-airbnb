@@ -60,7 +60,7 @@ user10 = User.create!(
   password: "123456",
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://pictures.ssg-service.com/spa/spark-rc-tarmac_1600x750_landing-main-banner_2021_BIKE_SCOTT-Sports_1814015_jpg_original_1.jpg')
 bike = Bike.new( description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
 location: "La calle violeta 123, Buenos Aires, Argentina",
 price: 40.00)
