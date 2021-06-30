@@ -7,6 +7,6 @@ class Bike < ApplicationRecord
   validates :price, presence: true
   validates :location, presence: true
 
-  geocoded_by :address
+  geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_address?
 end
