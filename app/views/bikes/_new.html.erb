@@ -1,10 +1,17 @@
-<div>
+
+<div class= "container form-style">
   <%= simple_form_for @bike do |f| %>
   <%= f.input :description  %>
-  <%= f.input :photo  %>
+
+  <%= f.input :photo %>
   <%= f.input :price %>
   <%= f.input :location %>
-  <%= f.submit%>  
+  <div class="user-button">
+  <%= f.submit class:'btn btn-primary'%>  
+  
   <% end %>
-  <%= link_to "Back", bikes_path, class:'btn btn-primary' %>
+  <div class="back-button user-button-actions">
+  <%= link_to "Back Home", bikes_path, class:'btn btn-primary' %>
+  </div>
+  </div>
 </div>

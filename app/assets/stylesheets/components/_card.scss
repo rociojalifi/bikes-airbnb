@@ -15,15 +15,39 @@
   padding: 16px;
 }
 
+.card-position {
+  align-items: center;
+}
+
 .card-bike {
-  width: 350px;
+  width: 700px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  margin-bottom: 20px;
 }
 
 .card-bike > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+.user-button {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-button-actions {
+  float: right;
+  margin-left: auto;
+}
+.add-button {
+  float: right;
+  margin-bottom: 20px;
+  margin-right: 204px;
 }
