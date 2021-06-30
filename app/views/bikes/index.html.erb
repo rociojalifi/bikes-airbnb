@@ -1,33 +1,24 @@
 <div class="wrapper">
-  <div class="container">
+  <div>
     <h1 class="title-card">
       Find the <strong id="title-index">perfect bike</strong>
       <strong id="title-index">to enjoy</strong> the city
     </h1>
     <div class="">
-      <div class="row">
+      <div>
         <% @bikes.each do |bike| %>
-        <div id="" class="col-sm card-position">
+        <div id="" class="card-position">
           <div class="card-bike" id="">
             <% if bike.photo.attached? %> <%= cl_image_tag bike.photo.key %> <%
             end %>
-            <div class="card-content">
-              <div>
-                <p id="city">
-                  <strong>Location:</strong>
-                  <%= bike.location %>
-                </p>
-
+              <div class="card-content">
                 <div>
+                  <p id="city"><strong>Location:</strong><%= bike.location %></p>
                   <p><strong>Description: </strong><%= bike.description %></p>
-
                   <p><strong>Price: </strong>€<%= bike.price %></p>
                   <p><strong>Owner email:</strong><%= bike.user.email %></p>
                   <div class="user-button">
-                    <h5 class="card-title">
-                      <%= link_to 'Book', bike_path(bike), class:'btn btn-light'
-                      %>
-                    </h5>
+                    <h5 class="card-title"><%= link_to 'Book', bike_path(bike), class:'btn btn-light'%></h5>
                     <div class="user-button-actions">
                       <% if policy(bike).edit? %> <%= link_to 'Edit',
                       edit_bike_path(bike), class:'btn btn-dark' %> <% end %> <%
@@ -39,14 +30,15 @@
                   </div>
                 </div>
               </div>
-            </div>
+
+
           </div>
-          <% end %>
         </div>
+        <% end %>
       </div>
       <div class="add-button">
-      <%= link_to 'Add a Bike', new_bike_path, class:'btn btn-primary'%>
-    </div>
+        <%= link_to 'Add a Bike', new_bike_path, class:'btn btn-primary'%>
+      </div>
     </div>
   </div>
   <div id="map"
