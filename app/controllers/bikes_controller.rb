@@ -3,12 +3,15 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
   def index
     @bikes = policy_scope(Bike).order(created_at: :desc)
-    @makers = @bikes.geocoded.map do |bike|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
+    @bikes = Bike.all
+      @markers = @bikes.geocoded.map do |bike|
+        {
+          lat: bike.latitude,
+          lng: bike.longitude,
+          info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        }
     end
+    puts @markers
   end
 
   def new

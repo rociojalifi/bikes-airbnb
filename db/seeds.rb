@@ -60,21 +60,21 @@ user10 = User.create!(
   password: "123456",
 )
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://images.giant-bicycles.com/b_white,c_crop,h_600,q_70,w_1920/ttrxfweevgr629cgmyum/EBike_Banner.jpg')
 bike = Bike.new( description: "Mi bicicleta es una bicleta muy comoda y original",
 location: "La calle violeta 123, Buenos Aires, Argentina",
 price: 40.00)
-bike.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+bike.photo.attach(io: file, filename: 'bike_1.jpg', content_type: 'image/jpg')
 bike.save
 
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+file = URI.open('https://images.giant-bicycles.com/b_white,c_crop,h_600,q_70,w_1920/ttrxfweevgr629cgmyum/EBike_Banner.jpg')
 bike1 = Bike.create!(
   user: user10,
   description: "Mi bicleta tiene colores super lindos",
   location: "La calle violeta 123, Buenos Aires, Argentina",
   price: 100.00
 )
-bike1.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+bike1.photo.attach(io: file, filename: 'bike_1.jpg', content_type: 'image/jpg')
 bike1.save
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
