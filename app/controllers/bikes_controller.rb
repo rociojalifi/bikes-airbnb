@@ -39,7 +39,7 @@ class BikesController < ApplicationController
 
   def update 
     if @bike.update(bike_params)
-    redirect_to bike_path(@bike)
+    redirect_to bikes_path
     else
       render :edit
     end
