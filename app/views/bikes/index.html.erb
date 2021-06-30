@@ -3,72 +3,31 @@
   <strong id="title-index">to enjoy</strong> the city
 </h1>
 
-<div class="container-fluid">
-  <div class="col-sm-7">
-    <div class="row">
-      <% @bikes.each do |bike| %>
-      <div class="col-xs-12 col-sm-6">
-        <%= link_to bike_path(bike) do %>
-        <div
-          class="card-image"
-          style="
-            background-image: linear-gradient(
-                rgba(0, 0, 0, 0.3),
-                rgba(0, 0, 0, 0.2)
-              ),
-              url('<%= cl_image_path bike.photo, width: 400,height: 300, crop: :thumb %>');
-          "
-        >
-          <div class="card-email"><%= bike.user.email %></div>
-          <%= cl_image_tag bike.photo, width: 50, height: 50, crop: :fill,
-          class: "card-user" %>
-        </div>
-        <div class="card">
-          <div class="card-description">
-            <p><strong id="city"><%= bike.location %></strong></p>
-            <p><%= bike.description %></p>
-          </div>
-          <div class="card-price">
-            <h2><%= bike.price %> €</h2>
-          </div>
-        </div>
+<section class="card-container">
+  <% @bikes.each do |bike| %>
+  <div class="card">
+    <div class="card__textContent">
+      <div class="card__title">
+        <div class="card__title-main">Your Bike</div>
+        <div class="card__title-sub"><%= bike.location %></div>
       </div>
-      <% end %>
-    </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="container-fluid">
-  <div class="col-sm-7">
-    <div class="row">
-      <% @bikes.each do |bike| %>
-      <div class="co-12 colsm-6 col-md-4 mb-3">
-        <%= link_to bike_path(bike), class:'text-decoration-none' do %>
-        <div
-          class="card-category card-style card-image"
-          style="
-            background-image: linear-gradient(
-                rgba(0, 0, 0, 0.3),
-                rgba(0, 0, 0, 0.3)
-              ),
-              url('<%= cl_image_path bike.photo.key, height: 300, width: 400, crop: :fill %>');
-          "
-        >
-          <div class="card">
-            <div class="card-description">
-              <p><strong id="city"><%= bike.location %></strong></p>
-              <p><%= bike.description %></p>
-            </div>
-            <div class="card-price">
-              <h2><%= bike.price %> €</h2>
-            </div>
-          </div>
-        </div>
-        <% end %>
+      <div
+        class="card__image"
+        style="
+          background-image: linear-gradient(
+              rgba(0, 0, 0, 0.3),
+              rgba(0, 0, 0, 0.3)
+            ),
+            url('<%= cl_image_path bike.photo.key, height: 300, width: 400, crop: :fill %>');
+        "
+      ></div>
+      <div class="card__content">
+        <p><%= bike.description %></p>
+        <p><%= bike.price %> €</p>
+        <p><%= bike.user.email %></p>
       </div>
-      <% end %>
+      <div class="card__button button">Learn More</div>
     </div>
-    <%= link_to "Back", root_path, class:'btn btn-primary' %>
   </div>
-</div>
+  <% end %>
+</section>
