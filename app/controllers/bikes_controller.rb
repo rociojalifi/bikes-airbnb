@@ -3,6 +3,13 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
   def index
     @bikes = policy_scope(Bike).order(created_at: :desc)
+    @bikes = Bikes.all
+    @makers = @bikes.geocode.map do |bike|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def new
@@ -15,7 +22,7 @@ class BikesController < ApplicationController
     @bike.user = current_user
     authorize @bike
     if @bike.save
-      redirect_to bike_path(@bike)
+      redirect_to bikes_path
     else
       render :new
     end

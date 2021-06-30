@@ -1,4 +1,40 @@
-<h1> bikes#index </h1>
-<p>Find me in app/views/bikes/index.html.erb</p>
-<%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY",
-      width: 400, height: 300, crop: :fill) %>
+<div class="container">
+  <h1 class="text-center title-index-padding">
+    Find the <strong id="title-index">perfect bike</strong>
+    <strong id="title-index">to enjoy</strong> the city
+  </h1>
+  <div class="">
+    <div class="row">
+      <% @bikes.each do |bike| %>
+      <div id="" class="col-sm">
+        <div class="card-bike" id="">
+          <% if bike.photo.attached? %> <%= cl_image_tag bike.photo.key %> <%
+          end %>
+
+          <h5 class="card-title"><%= link_to 'Book', bike_path(bike) %></h5>
+          <div>
+            <p id="city">
+              <strong>Location:</strong>
+              <%= bike.location %>
+            </p>
+
+            <div>
+              <p><strong>Description: </strong><%= bike.description %></p>
+
+              <p><strong>Price: </strong>€<%= bike.price %></p>
+
+              <p><strong>Owner email:</strong><%= bike.user.email %></p>
+              <% if policy(bike).edit? %> <%= link_to 'Edit',
+              edit_bike_path(bike), class:'btn btn-dark' %> <% end %> <% if
+              policy(bike).destroy? %> <%= link_to 'Delete', bike_path(bike),
+              method: :delete, data: { confirm: "Are you sure you want to delete
+              this bike?"}, class: 'btn btn-danger' %> <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to 'Add a Bike', new_bike_path, class:'btn btn-dark'%>
+</div>
