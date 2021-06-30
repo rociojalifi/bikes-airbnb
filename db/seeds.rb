@@ -61,7 +61,7 @@ user10 = User.create!(
 )
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-bike = Bike.new( description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+bike = Bike.new( description: "Mi bicicleta es una bicleta muy comoda y original",
 location: "La calle violeta 123, Buenos Aires, Argentina",
 price: 40.00)
 bike.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
@@ -70,7 +70,7 @@ bike.save
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 bike1 = Bike.create!(
   user: user10,
-  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+  description: "Mi bicleta tiene colores super lindos",
   location: "La calle violeta 123, Buenos Aires, Argentina",
   price: 100.00
 )
@@ -80,7 +80,7 @@ bike1.save
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 bike2 = Bike.create!(
   user: user1,
-  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+  description: "Queres recorrer toda la ciudad de manera comoda y rapida? Mi bicicleta es la mejor",
   location: "La calle violeta 123, Buenos Aires, Argentina",
   price: 90.00
 )
@@ -90,7 +90,7 @@ bike2.save
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 bike3 = Bike.create!(
   user: user5,
-  description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+  description: "Vintage Bike ",
   location: "La calle violeta 123, Buenos Aires, Argentina",
   price: 40.00
 )
