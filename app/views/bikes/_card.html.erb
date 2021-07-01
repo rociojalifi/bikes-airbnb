@@ -1,0 +1,8 @@
+<div class="card-product">
+<%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-product-infos">
+    <h2><%= @bike.description %></h2>
+    <p>€  <%= @bike.price %></p>
+    <p><%= @bike.location %></p>
+  </div>
+</div>
