@@ -1,17 +1,27 @@
-
-<div class= "container form-style">
-  <%= simple_form_for @bike do |f| %>
-  <%= f.input :description  %>
-
-  <%= f.input :photo %>
-  <%= f.input :price %>
-  <%= f.input :location %>
-  <div class="user-button">
-  <%= f.submit class:'btn btn-primary'%>  
-  
+<div class="form-style">
+  <%= simple_form_for @bike do |f| %> 
+  <%= f.input :description, placeholder: "City Bike" %> 
+  <%= f.input :photo, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'},
+  label: '📷 Upload a photo' %>
+  <%= f.input :price, placeholder: "€40" %>
+  <%= f.input :location, placeholder: "Amsterdam" %>
+  <div class="user-button mt-5">
+    <%= f.submit class:'btn btn-primary btn-block'%> 
+  </div>
   <% end %>
-  <div class="back-button user-button-actions">
-  <%= link_to "Back Home", bikes_path, class:'btn btn-primary' %>
-  </div>
-  </div>
 </div>
+
+<style>
+  .upload-photo {
+    border: 1px solid #d3d3d3;
+    padding: 16px 24px;
+    cursor: pointer;
+    font-weight: 500;
+    background: white;
+    border-radius: 5px;
+  }
+  .form-style{
+    width: 800px;
+  }
+
+</style>

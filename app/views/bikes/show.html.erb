@@ -1,21 +1,21 @@
+<%= render 'shared/banner' %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @bike.photo.key, crop: :scale %>'); height:300px; background-size:100%">
-    <div class="container">
-      <h1>The bike you chose</h1>
+<div class="pt-5 pb-5 px-5">
+  <div class="d-flex justify-content-between booking-content">
+    <div class="booking-form d-flex align-items-center justify-content-center">
+    <div>
+      <%= simple_form_for [@bike, @booking] do |form| %>
+       <%= form.input :pick_up
+      %> <%= form.input :drop_off %>
+      <div class="user-button">
+        <%= form.submit class:'btn btn-primary' %>
+        <% end %> 
+        <%= link_to "Cancel", bikes_path, class:'btn btn-primary user-button-actions' %>
+      </div>
     </div>
+    </div>
+    <div class="booking-info">
+    <%= render 'bikes/card' %>
+    </div>
+  </div>
 </div>
-<div class="container">
-    <p><%= @bike.description %></p>
-    <p>USD <%= @bike.price %></p>
-    <p><%= @bike.location %></p>
-
-    <%= simple_form_for [@bike, @booking] do |form| %>
-        <%= form.input :pick_up %>
-        <%= form.input :drop_off %>
-        <%= form.submit %>
-    <% end %>
-    <%= link_to "Back", bikes_path, class:'btn btn-primary' %>
-
-</div>
-
-

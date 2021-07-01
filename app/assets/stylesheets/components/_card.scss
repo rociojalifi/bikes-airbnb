@@ -1,7 +1,3 @@
-#city {
-  color: #ec605f;
-}
-
 .content {
   display: flex;
   flex-direction: row;
@@ -10,32 +6,58 @@
 #cards {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 70% 30%;
   grid-gap: 16px;
   padding: 16px;
 }
 
-.card-position {
+.cards-position {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.card-bike-container {
+  width: 100%;
+  padding: 20px;
+
+  @media screen and (min-width: 1600px) {
+    width: 50%;
+  }
 }
 
 .card-bike {
-  width: 600px;
-  overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  margin: auto;
-  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
 .card-bike > img {
-  height: 200px;
-  width: 100%;
+  height: 300px;
   object-fit: cover;
+  object-position: center;
+  width: 100%;
 }
 
 .card-content {
   padding: 20px;
+  p {
+    color: rgb(130, 130, 130);
+    font-family: "Castoro", serif;
+  }
+}
+
+.card-description {
+  display: flex;
+  flex-direction: row;
+  h3 {
+    color: rgb(35, 38, 35);
+  }
+}
+.card-price {
+  margin-left: auto;
 }
 .user-button {
   display: flex;
@@ -49,5 +71,5 @@
 .add-button {
   float: right;
   margin-bottom: 20px;
-  margin-right: 204px;
+  margin-right: 100px;
 }
