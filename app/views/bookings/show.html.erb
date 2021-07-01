@@ -1,18 +1,8 @@
-<div class= "container-listing">
-  <br>
-  <h2>
-    <strong>
-    Congratulations! Your booking has been confirmed!
-    </strong>
-  </h2>
-  <br>
-  <h3>Your booking details</h3>
-    <strong> Start Date: <%= @booking.pick_up %></strong> | <strong>End date: <%= @booking.drop_off %></strong>
-    <div class="booking-images"><%= cl_image_tag @bike.photo.key, height:300, crop: :fill %></div>
-  <div class= "">
-    <h4 class="description"><strong> Description: <%= @booking.bike.description %></strong></h4>
-    <h4> <strong>Price: € </strong><%= @booking.bike.price  %> </h4>
-    <h4> <strong>Location:</strong> <%= @booking.bike.location %> </h4>
-    <%= link_to "Back home", root_path, class:'btn btn-primary mt-2' %>
+<%= render 'shared/banner_booked' %>
+
+<div class="d-flex">
+  <div class= "container-listing mt-5 mb-5">
+    <%= render 'bikes/card_booked' %>
   </div>
+  <img src="https://media.giphy.com/media/31lPv5L3aIvTi/giphy.gif" class="rounded mx-auto booking-img mt-5 mb-5">
 </div>

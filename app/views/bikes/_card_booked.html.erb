@@ -1,0 +1,13 @@
+<div class="card-product">
+<%= cl_image_tag @bike.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-product-infos">
+    <h2>Your booking details</h2>
+
+    <p><strong> Start Date: <%= @booking.pick_up %></strong> | <strong>End date: <%= @booking.drop_off %></strong></p>
+    <h4><%= @bike.description %></h4>
+    <p>€  <%= @bike.price %></p>
+    <p><strong> Pick up point | <strong>Drop off point</p>
+
+    <p><%= @bike.location %></p>
+  </div>
+</div>
