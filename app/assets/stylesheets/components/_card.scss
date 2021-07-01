@@ -43,15 +43,18 @@
 
 .card-content {
   padding: 20px;
-  font-family: "Castoro", serif;
   p {
     color: rgb(130, 130, 130);
+    font-family: "Castoro", serif;
   }
 }
 
 .card-description {
   display: flex;
   flex-direction: row;
+  h3 {
+    color: rgb(35, 38, 35);
+  }
 }
 .card-price {
   margin-left: auto;
