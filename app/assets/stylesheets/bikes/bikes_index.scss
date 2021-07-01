@@ -1,9 +1,11 @@
-.wrapper {
+.bikes-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
+  margin-top: 80px;
 }
 
 #map {
-  position: sticky !important;
-  top: 0;
+  position: sticky;
+  top: 80px;
+  z-index: 10;
 }
