@@ -1,3 +1,5 @@
+<%= render 'shared/navbar' %>
+
 <div class="wrapper">
   <div>
     <h1 class="title-card">
@@ -11,27 +13,27 @@
           <div class="card-bike" id="">
             <% if bike.photo.attached? %> <%= cl_image_tag bike.photo.key %> <%
             end %>
-              <div class="card-content">
-                <div>
-                  <p id="city"><strong>Location:</strong><%= bike.location %></p>
-                  <p><strong>Description: </strong><%= bike.description %></p>
-                  <p><strong>Price: </strong>€<%= bike.price %></p>
-                  <p><strong>Owner email:</strong><%= bike.user.email %></p>
-                  <div class="user-button">
-                    <h5 class="card-title"><%= link_to 'Book', bike_path(bike), class:'btn btn-light'%></h5>
-                    <div class="user-button-actions">
-                      <% if policy(bike).edit? %> <%= link_to 'Edit',
-                      edit_bike_path(bike), class:'btn btn-dark' %> <% end %> <%
-                      if policy(bike).destroy? %> <%= link_to 'Delete',
-                      bike_path(bike), method: :delete, data: { confirm: "Are you
-                      sure you want to delete this bike?"}, class: 'btn
-                      btn-danger' %> <% end %>
-                    </div>
+            <div class="card-content">
+              <div>
+                <p id="city"><strong>Location:</strong><%= bike.location %></p>
+                <p><strong>Description: </strong><%= bike.description %></p>
+                <p><strong>Price: </strong>€<%= bike.price %></p>
+                <p><strong>Owner email:</strong><%= bike.user.email %></p>
+                <div class="user-button">
+                  <h5 class="card-title">
+                    <%= link_to 'Book', bike_path(bike), class:'btn btn-light'%>
+                  </h5>
+                  <div class="user-button-actions">
+                    <% if policy(bike).edit? %> <%= link_to 'Edit',
+                    edit_bike_path(bike), class:'btn btn-dark' %> <% end %> <%
+                    if policy(bike).destroy? %> <%= link_to 'Delete',
+                    bike_path(bike), method: :delete, data: { confirm: "Are you
+                    sure you want to delete this bike?"}, class: 'btn
+                    btn-danger' %> <% end %>
                   </div>
                 </div>
               </div>
-
-
+            </div>
           </div>
         </div>
         <% end %>
@@ -41,9 +43,10 @@
       </div>
     </div>
   </div>
-  <div id="map"
-    style="width: 100%; height: 100vh;"
+  <div
+    id="map"
+    style="width: 100%; height: 100vh"
     data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
