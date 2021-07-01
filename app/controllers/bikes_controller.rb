@@ -2,13 +2,17 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
   def index
-    @bikes = policy_scope(Bike).order(created_at: :desc)
-      @markers = @bikes.geocoded.map do |bike|
-        {
-          lat: bike.latitude,
-          lng: bike.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
-        }
+    if params[:query].present?
+      @bikes = policy_scope(Bike).where(location: params[:query])
+    else
+      @bikes = policy_scope(Bike).order(created_at: :desc)
+        @markers = @bikes.geocoded.map do |bike|
+          {
+            lat: bike.latitude,
+            lng: bike.longitude,
+            info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+          }
+      end
     end
     puts @markers
   end
