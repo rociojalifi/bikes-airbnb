@@ -16,7 +16,10 @@
   position: fixed;
   top: 0;
   justify-content: space-between;
-  background: transparent;
+  background: white;
+
+  z-index: 20;
+  height: 80px;
 }
 
 .navbar-home .navbar-collapse {
