@@ -16,6 +16,16 @@
     </div>
     <div class="booking-info">
     <%= render 'bikes/card' %>
+    <%= pluralize @bike.reviews.size, "review" %>
     </div>
   </div>
+  <div id="reviews">
+  <% if @bike.reviews.blank? %>
+    Be the first to leave a review for <%= @bike.name %>
+  <% else %>
+    <% @bike.reviews.each do |review| %>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+</div>
 </div>
