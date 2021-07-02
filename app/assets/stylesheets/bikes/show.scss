@@ -1,0 +1,26 @@
+#delete-btn {
+  font-size: 15px;
+}
+
+.reviews-title {
+  padding: 50px 0 0 0;
+  font-size: 30px;
+}
+
+.reviews-form {
+  padding: 50px 0 10px 0;
+  font-size: 20px;
+}
+
+.review {
+  padding: 30px 0 10px 0;
+  font-size: 20px;
+  margin: 10px 0;
+
+  &.card-product {
+    padding-top: 10px;
+    height: 100px;
+    padding: 10px;
+  }
+}
+
