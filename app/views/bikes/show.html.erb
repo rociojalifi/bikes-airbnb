@@ -2,6 +2,9 @@
 
 <div class="pt-5 pb-5 px-5">
   <div class="d-flex justify-content-between booking-content">
+  <div class="booking-info container-listing">
+    <%= render 'bikes/card' %>
+    </div>
     <div class="booking-form d-flex align-items-center justify-content-center">
     <div>
       <%= simple_form_for [@bike, @booking] do |form| %>
@@ -13,9 +16,6 @@
         <%= link_to "Cancel", bikes_path, class:'btn btn-primary user-button-actions' %>
       </div>
     </div>
-    </div>
-    <div class="booking-info">
-    <%= render 'bikes/card' %>
     </div>
   </div>
 </div>

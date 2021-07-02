@@ -35,10 +35,25 @@
   width: 400px;
 }
 .booking-content {
-  padding: 5px 200px;
+  padding: 5px 100px;
 }
 
 .booking-img {
   height: 300px;
-  width: 300px;
+  width: 500px;
+  margin-right: 100px;
+}
+.card-product-booked {
+  width: 650px;
+  margin-left: 100px;
+  font-size: 15px;
+  color: rgb(110, 111, 111);
+}
+.card-product-booked p {
+  font-size: 15px;
+  color: rgb(110, 111, 111);
+}
+
+.card-product-booked h2 {
+  color: rgb(110, 111, 111);
 }

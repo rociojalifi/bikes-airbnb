@@ -3,11 +3,12 @@
   <div class="card-product-infos">
     <h2>Your booking details</h2>
 
-    <p><strong> Start Date: <%= @booking.pick_up %></strong> | <strong>End date: <%= @booking.drop_off %></strong></p>
-    <h4><%= @bike.description %></h4>
-    <p>€  <%= @bike.price %></p>
-    <p><strong> Pick up point | <strong>Drop off point</p>
-
+    <p class="mt-0"><small>Start Date: <%= @booking.pick_up %> | End date: <%= @booking.drop_off %></small></p>
+    <hr>
+    <p><strong>Pick up point | Drop off point</strong></p>
     <p><%= @bike.location %></p>
+
+    <p>€  <%= @bike.price %> / per day</p>
+    
   </div>
 </div>
