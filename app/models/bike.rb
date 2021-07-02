@@ -6,7 +6,7 @@ class Bike < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :supersearch,
-   against: [ :location],
+   against: :location,
    using: {
      tsearch: { prefix: true }
    }

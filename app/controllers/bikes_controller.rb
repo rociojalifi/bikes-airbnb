@@ -3,7 +3,14 @@ class BikesController < ApplicationController
   before_action :set_bike, only: [:show, :edit, :update, :destroy]
   def index
     if params[:query].present?
-      @bikes = policy_scope(Bike).where(location: params[:query])
+      @bikes = policy_scope(Bike).where("location ILIKE ?", "%#{params[:query]}%")
+        @markers = @bikes.geocoded.map do |bike|
+          {
+            lat: bike.latitude,
+            lng: bike.longitude,
+            info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+          }
+        end
     else
       @bikes = policy_scope(Bike).order(created_at: :desc)
         @markers = @bikes.geocoded.map do |bike|
@@ -12,7 +19,7 @@ class BikesController < ApplicationController
             lng: bike.longitude,
             info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
           }
-      end
+        end
     end
     puts @markers
   end
