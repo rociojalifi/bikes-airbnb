@@ -1,6 +1,9 @@
 <div class="window">
   <h2><%= bike.description %></h2>
   <p><%= bike.location %></p>
+  <div class="text-right">
+    <%= link_to 'Book', bike_path(bike) , class: 'btn btn-sm btn-light'%>
+  </div>
 </div>
 
 <style>
