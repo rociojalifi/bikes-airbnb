@@ -60,70 +60,63 @@ user10 = User.create!(
   password: "123456",
 )
 
-file = URI.open('https://images.giant-bicycles.com/b_white,c_crop,h_600,q_70,w_1920/ttrxfweevgr629cgmyum/EBike_Banner.jpg')
-bike = Bike.new( description: "Mountain Bike",
-location: "Bedrijvenpark Apeldoorn-Noord, Apeldoorn",
-price: 40.00)
-bike.photo.attach(io: file, filename: 'bike_1.jpg', content_type: 'image/jpg')
-bike.save
-
-file2 = URI.open('https://images.unsplash.com/photo-1563990308267-cd6d3cc09318?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
+file1 = URI.open('https://images.unsplash.com/photo-1487803836022-91054ca05fdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=667&q=80')
 bike1 = Bike.create!(
   user: user10,
-  description: "Purple City Bike",
+  description: "Cervelo S5",
   location: "Bijlmerdreef 989, Amsterdam",
-  price: 100.00
+  price: 25.00
 )
-bike1.photo.attach(io: file2, filename: 'bike_2.jpg', content_type: 'image/jpg')
+bike1.photo.attach(io: file1, filename: 'nes1.jpg', content_type: 'image/jpg')
 bike1.save
 
-file3 = URI.open('https://images.unsplash.com/photo-1456990493443-0d0ee2a630cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
+file2 = URI.open('https://images.unsplash.com/photo-1552229812-3fd9df36c4b1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80')
 bike2 = Bike.create!(
   user: user1,
-  description: "Speed Bike",
+  description: "Mega Mustang R29",
   location: "Märkischer Kreis, Alemania",
-  price: 90.00
+  price: 20.00
 )
-bike2.photo.attach(io: file3, filename: 'nes.png', content_type: 'image/png')
+bike2.photo.attach(io: file2, filename: 'nes2.png', content_type: 'image/png')
 bike2.save
 
-file4 = URI.open('https://images.unsplash.com/photo-1586478029136-dc24a4bda75b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80')
+file3 = URI.open('https://images.unsplash.com/photo-1569943228307-a66beab7cd96?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDd8fGJpa2V8ZW58MHwwfDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60')
 bike3 = Bike.create!(
   user: user5,
-  description: "City Bike",
-  location: "LScherpenheuvel-Zichem, Bélgica",
-  price: 40.00
+  description: "Schwinn Vintage",
+  location: "Place de l'Atomium 1, Bélgica",
+  price: 12.00
 )
-bike3.photo.attach(io: file4, filename: 'nes.png', content_type: 'image/png')
+bike3.photo.attach(io: file3, filename: 'nes3.png', content_type: 'image/png')
 bike3.save
 
-file5 = URI.open('https://images.unsplash.com/photo-1614003352040-76e0d0409fb6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1104&q=80')
+file4 = URI.open('https://images.unsplash.com/photo-1501147830916-ce44a6359892?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')
 bike4 = Bike.create!(
   user: user6,
-  description: "Sporty Blue Bike",
-  location: "Bedrijvenpark Apeldoorn-Noord, Apeldoorn",
-  price: 4000.00
+  description: "JVK Bikes Vintage",
+  location: "Museumstraat 1, Amsterdam",
+  price: 15.00
 )
-bike4.photo.attach(io: file5, filename: 'nes.png', content_type: 'image/png')
+bike4.photo.attach(io: file4, filename: 'nes4.png', content_type: 'image/png')
 bike4.save
 
-file6 = URI.open('https://images.unsplash.com/photo-1543169964-aee4453d2140?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')
+file5 = URI.open('https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YmlrZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
 bike5 = Bike.create!(
   user: user5,
-  description: "Sporty Blue Bike",
-  location: "Dümmlinghausen, 51647 Gummersbach, Alemania",
-  price: 4000.00
+  description: "Peugeot Urban Cx",
+  location: "Dam 1, Amsterdam",
+  price: 10.00
 )
-bike5.photo.attach(io: file6, filename: 'nes.png', content_type: 'image/png')
+bike5.photo.attach(io: file5, filename: 'nes5.png', content_type: 'image/png')
 bike5.save
 
-file5 = URI.open('https://images.unsplash.com/photo-1593764592116-bfb2a97c642a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=661&q=80')
+file6 = URI.open('https://images.unsplash.com/photo-1593764592116-bfb2a97c642a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=661&q=80')
 bike6 = Bike.create!(
   user: user8,
-  description: "Speed Bike",
-  location: "Nachtegaalstraat, 6361 VS Nuth",
-  price: 4000.00
+  description: "Cannondale V360",
+  location: "43 Choumert Rd, London",
+  price: 30.00
 )
-bike6.photo.attach(io: file5, filename: 'nes.png', content_type: 'image/png')
+bike6.photo.attach(io: file6, filename: 'nes6.png', content_type: 'image/png')
 bike6.save
 
