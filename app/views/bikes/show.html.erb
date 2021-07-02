@@ -4,6 +4,7 @@
   <div class="d-flex justify-content-between booking-content">
   <div class="booking-info container-listing">
     <%= render 'bikes/card' %>
+    <%= pluralize @bike.reviews.size, "review" %>
     </div>
     <div class="booking-form d-flex align-items-center justify-content-center">
     <div>
@@ -17,22 +18,31 @@
       </div>
     </div>
     </div>
-    <div class="booking-info">
-    <%= render 'bikes/card' %>
-    <%= pluralize @bike.reviews.size, "review" %>
-    </div>
   </div>
+
   <div id="reviews">
-  <% if @bike.reviews.blank? %>
-    Be the first to leave a review for <%= @bike.description %>
-  <% else %>
-    <% @bike.reviews.each do |review| %>
-      <p id="review-<%= review.id %>"><%= review.content %></p>
+    <% if @bike.reviews.blank? %>
+      <div class="reviews-title">
+        <strong>Be the first to leave a review for <%= @bike.description %></strong>
+      </div>
+    <% else %>
+    <div class="reviews-title">
+      <strong>Bike´s reviews</strong>
+    </div>
+      <div>
+        <% @bike.reviews.each do |review| %>
+          <div class="review card-product d-flex justify-content-between flex-column" >
+            <p id="review-<%= review.id %>" style="font-size: 20px; padding-top:10px"><%= review.content %></p>
+            <p id="delete-btn"><%= link_to 'Delete', review_path(review),
+              method: :delete, data: { confirm: "Are you sure you want to
+              delete this review?"} %></p>
+          </div> 
+        <% end %>
+      </div>
     <% end %>
+  </div class="reviews-form">
+  <%= simple_form_for([ @bike, @review ], remote: true) do |f| %>
+    <%= f.input :content, as: :text, label:"Write a review", style: "font-size:20px", input_html: {rows: 5} %>
+    <%= f.button :submit, class:'btn btn-primary' %>
   <% end %>
-</div>
-<%= simple_form_for([ @bike, @review ], remote: true) do |f| %>
-  <%= f.input :content, as: :text %>
-  <%= f.button :submit %>
-<% end %>
 </div>
