@@ -40,3 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
 });
+
+import "controllers"

@@ -27,7 +27,7 @@
                 <% if policy(bike).edit? %> <%= link_to 'Edit',
                 edit_bike_path(bike), class:'btn btn-dark' %> <% end %> <% if
                 policy(bike).destroy? %> <%= link_to 'Delete', bike_path(bike),
-                method: :delete, data: { confirm: "Are you sure you want to
+                method: :delete, remote: true, data: { confirm: "Are you sure you want to
                 delete this bike?"}, class: 'btn btn-danger' %> <% end %>
               </div>
             </div>

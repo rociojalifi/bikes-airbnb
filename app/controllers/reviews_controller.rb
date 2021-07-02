@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
   def create
     @bike = Bike.find(params[:bike_id])
-    @bike = Bike.new(review_params)
+    @review = Review.new(review_params)
     @review.bike = @bike
+    authorize @review
     if @review.save
-      redirect_to bike_path(@bike)
+      redirect_to bike_path(@bike, anchor: "review-#{@review.id}")
     else
       render 'bikes/show'
     end

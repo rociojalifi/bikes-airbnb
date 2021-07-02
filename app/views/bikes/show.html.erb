@@ -21,14 +21,14 @@
   </div>
   <div id="reviews">
   <% if @bike.reviews.blank? %>
-    Be the first to leave a review for <%= @bike.name %>
+    Be the first to leave a review for <%= @bike.description %>
   <% else %>
     <% @bike.reviews.each do |review| %>
-      <p><%= review.content %></p>
+      <p id="review-<%= review.id %>"><%= review.content %></p>
     <% end %>
   <% end %>
 </div>
-<%= simple_form_for([ @bike, @review ]) do |f| %>
+<%= simple_form_for([ @bike, @review ], remote: true) do |f| %>
   <%= f.input :content, as: :text %>
   <%= f.button :submit %>
 <% end %>
