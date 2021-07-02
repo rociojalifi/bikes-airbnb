@@ -2,6 +2,15 @@ class Bike < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_one_attached :photo
+  has_many :reviews, dependent: :destroy
+
+  include PgSearch::Model
+
+  pg_search_scope :supersearch,
+   against: :location,
+   using: {
+     tsearch: { prefix: true }
+   }
 
   include PgSearch::Model
 
