@@ -12,6 +12,14 @@ class Bike < ApplicationRecord
      tsearch: { prefix: true }
    }
 
+  include PgSearch::Model
+
+  pg_search_scope :supersearch,
+   against: :location,
+   using: {
+     tsearch: { prefix: true }
+   }
+
   validates :description, presence: true
   validates :price, presence: true
   validates :location, presence: true
