@@ -21,4 +21,8 @@ class BikePolicy < ApplicationPolicy
     record.user == user 
   end
 
+  def my_bikes?
+    true
+  end
+
 end

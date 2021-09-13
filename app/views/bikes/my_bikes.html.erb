@@ -1,0 +1,21 @@
+<div class="container mb-5">
+  <div>
+    <h1>My bikes</h1>
+  </div>
+  
+  <div class="cards">
+    <% @my_bikes.each do |bike| %>
+      <div class="card-product row">
+        <div>
+          <h5><%= bike.description %></h5>
+        </div>
+        <div class="">
+          <div class="card-img">
+            <%= cl_image_tag bike.photo.key %>
+          </div>
+        </div>
+        
+      </div>
+    <% end %>
+  </div>
+</div>

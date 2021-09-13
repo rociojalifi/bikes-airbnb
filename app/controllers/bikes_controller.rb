@@ -49,7 +49,7 @@ class BikesController < ApplicationController
   def edit 
   end
 
-  def update 
+  def update
     if @bike.update(bike_params)
     redirect_to bikes_path
     else
@@ -63,6 +63,11 @@ class BikesController < ApplicationController
     else
       render :index
     end
+  end
+
+  def my_bikes
+    @my_bikes = current_user.bikes
+    authorize @my_bikes
   end
 
   private
