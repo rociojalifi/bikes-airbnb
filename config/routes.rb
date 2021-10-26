@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :bikes do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:new, :create]
     resources :reviews, only: [:create]
   end
-  resources :bookings, only: [:index, :show]
+  resources :bookings, only: [:show, :edit, :update, :destroy]
 end

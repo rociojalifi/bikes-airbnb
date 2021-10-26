@@ -9,10 +9,10 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
           <%= link_to "Rent your bike", new_bike_path, class: "nav-link" %>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item">
         <%= link_to "See All Bikes", bikes_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
@@ -29,10 +29,10 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link btn-login" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link btn-signup" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>

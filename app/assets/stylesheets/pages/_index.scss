@@ -1,7 +1,9 @@
 // Import page-specific CSS files here.
+@import "bikes_index";
 @import "home";
-@import "show";
+@import "my_bikes";
 @import "new";
+@import "show";
 
 .title-card {
   margin-top: 30px;

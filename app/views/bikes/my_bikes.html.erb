@@ -1,26 +1,71 @@
-<div class="container mb-5">
-  <div>
-    <h1>My bikes</h1>
-  </div>
-  
-  <div class="cards">
+<div class="container">
+  <h3 style="margin-top: 150px; font-family: 'Castoro', serif">
+    Bikes I have posted for rent
+  </h3>
+  <div class="my-bikes-cards">
     <% @my_bikes.each do |bike| %>
-      <div class="card-product">
-        <div class="card-img col-4">
-          <%= cl_image_tag bike.photo.key %>
-        </div>
-        <div class="card-img col-4">
-          <h5><%= bike.description %></h5>
-        </div>
-        <div class="col-4">
+      <div class="card-bike">
+        <%= cl_image_tag bike.photo.key %>
+        <div class="card-content">
+          <div class="card-description">
+            <h5><strong><%= bike.description %></strong></h5>
+            <h5 class="card-price"><strong>€<%= bike.price %></strong></h5>
+          </div>
           <% if bike.bookings.count == 0 %>
-            <h5>This bike hasn´t been booked yet</h5>
+            <p>This bike hasn´t been booked yet</p>
+            <div class="user-button">
+              <div class="user-button-actions">
+                <% if policy(bike).edit? %> <%= link_to 'Edit',
+                edit_bike_path(bike), class:'btn btn-primary' %> <% end %> <% if
+                policy(bike).destroy? %> <%= link_to 'Remove bike', bike_path(bike),
+                method: :delete, remote: true, data: { confirm: "Are you sure you want to
+                remove this bike?"}, class: 'btn btn-danger' %> <% end %>
+              </div>
+            </div>
           <% else %>
-            <h5>Booked by <%= bike.bookings %> </h5>
-            <h5>Pick up date <%= bike.bookings.pick_up %> </h5>
+            <p><strong>This bike´s bookings:</strong></p>
+            <% bike.bookings.each do |booking| %>
+              <p>Pick up date: <%= booking.pick_up %> </p>
+              <p>Drop off date: <%= booking.pick_up %> </p>
+              <p>Contact: <%= booking.user.email %> </p>
+            <% end %>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
+
+  <h3 style="margin-top: 50px; font-family: 'Castoro', serif">
+    Bikes I have rented to use
+  </h3>
+  <div class="my-bikes-cards">
+    <% @my_bookings.each do |booking| %>
+      <div class="card-bike">
+        <% if booking.bike.photo.attached? %> <%= cl_image_tag booking.bike.photo.key %> <%
+        end %>
+        <div class="card-content">
+          <div class="card-description">
+            <h5><strong><%= booking.bike.description %></strong></h5>
+            <h5 class="card-price"><strong>€<%= booking.bike.price %></strong></h5>
+          </div>
+
+          <p id="city"><%= booking.bike.location %></p>
+          <p>Contact: <%= booking.bike.user.email %></p>
+          <p>Pick up date: <%= booking.pick_up %> </p>
+          <p>Drop off date: <%= booking.drop_off %> </p>
+          <p>Contact: <%= booking.user.email %> </p>
+          <div class="user-button">
+            <div class="user-button-actions">
+              <% if policy(booking).edit? %> <%= link_to 'Edit',
+              edit_booking_path(booking), class:'btn btn-primary' %> <% end %> <% if
+              policy(booking).destroy? %> <%= link_to 'Cancel', booking_path(booking),
+              method: :delete, remote: true, data: { confirm: "Are you sure you want to
+              cancel this booking?"}, class: 'btn btn-danger' %> <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+ 
 </div>

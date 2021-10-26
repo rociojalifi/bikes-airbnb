@@ -11,8 +11,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "bikes/index";
 
 body {
   background-color: white;
 }
+
+
+.booking-form {
+  width: 400px;
+}
+.booking-content {
+  padding: 5px 100px;
+}
+
+.booking-img {
+  height: 300px;
+  width: 500px;
+  margin-right: 100px;
+}
+

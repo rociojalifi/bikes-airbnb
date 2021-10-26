@@ -1,0 +1,19 @@
+.my-bikes-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+@media(max-width: 992px) {
+  .my-bikes-cards {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16 px;
+  }
+}
+
+@media(max-width: 768px) {
+  .my-bikes-cards {
+    grid-template-columns: 1fr;
+    grid-gap: 16 px;
+  }
+}

@@ -47,3 +47,5 @@ class ApplicationPolicy
     end
   end
 end
+
+# Without Pundit, you can scope your queries in the controller with @tasks = current_user.department.tasks so that it always accesses them through the User.

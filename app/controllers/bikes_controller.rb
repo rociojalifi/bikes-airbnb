@@ -68,6 +68,8 @@ class BikesController < ApplicationController
   def my_bikes
     @my_bikes = current_user.bikes
     authorize @my_bikes
+
+    @my_bookings = current_user.bookings
   end
 
   private

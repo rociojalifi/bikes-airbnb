@@ -1,26 +1,11 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  skip_after_action :verify_policy_scoped, only: :index
-  before_action :set_booking, only: [:show, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_action :set_bike, only: [:new, :create]
-
-  def index
-    @booking = current_user.bookings
-  end
 
   def show
     authorize @booking
     @bike = @booking.bike
-  end
-
-  def update
-  end
-
-
-  def destroy
-    authorize @booking
-    @booking.destroy
-    redirect_to root_path
   end
 
   def new
@@ -38,6 +23,26 @@ class BookingsController < ApplicationController
     else
       redirect_to bike_path(@bike)
     end
+  end
+
+  def edit
+    authorize @booking
+  end
+
+  def update
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to my_bikes_path
+      else
+        render :edit
+      end
+  end
+
+
+  def destroy
+    authorize @booking
+    @booking.destroy
+    redirect_to root_path
   end
 
   private
